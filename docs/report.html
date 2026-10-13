@@ -1,0 +1,79 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>深鲸守护 · 密钥轮换 · 检查报告</title>
+<style>
+  :root{--bg:#0b1018;--fg:#e6edf6;--muted:#8b9bb4;--line:#1e2a3a;--card:#121a26}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.6 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:32px}
+  .wrap{max-width:1180px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .card .k{color:var(--muted);font-size:12px;margin-bottom:6px}
+  .card .v{font-size:20px;font-weight:700}
+  .chip{display:inline-block;padding:3px 10px;border-radius:999px;margin:0 6px 6px 0;font-size:13px;
+        border:1px solid var(--c);color:var(--c)}
+  .chip b{font-size:15px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}
+  th{color:var(--muted);font-weight:500;background:#0e1622}
+  tr:last-child td{border-bottom:0}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px}
+  .t{font-weight:600;margin-bottom:2px}
+  .src{color:var(--muted);font-size:12px}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#7dd3fc}
+  .ev{color:var(--muted);font-size:12px;margin-top:2px;word-break:break-all}
+  .adv{color:var(--muted);font-size:12px;max-width:260px}
+  .ok{background:#0d2b1a;border:1px solid #1d7a4a;color:#4ade80;padding:16px;border-radius:12px;margin-bottom:20px}
+  .warn{background:#2b1f0d;border:1px solid #a16207;color:#fbbf24;padding:12px 16px;border-radius:12px;margin-bottom:20px;font-size:13px}
+  footer{color:var(--muted);font-size:12px;margin-top:22px;padding-top:14px;border-top:1px solid var(--line)}
+  footer p{margin:3px 0}
+</style></head><body><div class="wrap">
+  <h1>深鲸守护 · 密钥轮换</h1>
+  <div class="sub">查密钥与证书多久没换了、有没有轮换制度 —— 长期不换的密钥是最容易被忽略的风险</div>
+
+  <div class="cards">
+    <div class="card"><div class="k">扫描文件</div><div class="v">3</div></div>
+    <div class="card"><div class="k">检查规则</div><div class="v">3<span style="font-size:13px;color:var(--muted)">/3</span></div></div>
+    <div class="card"><div class="k">命中</div><div class="v" style="color:#ea580c">4</div></div>
+    <div class="card"><div class="k">已跳过目录</div><div class="v">0</div></div>
+  </div>
+
+  
+  <div class="warn">⚠️ 扫描到的文件很少，请确认扫描目录是否正确 —— <b>不要因「全绿」就放心</b>。</div>
+  
+
+  <div style="margin-bottom:16px"><span class="chip" style="--c:#ea580c">高 <b>1</b></span><span class="chip" style="--c:#ca8a04">中 <b>3</b></span></div>
+       <table><thead><tr><th>级别</th><th>问题</th><th>位置 / 证据</th><th>建议</th></tr></thead>
+       <tbody>
+      <tr class="sev-high">
+        <td><span class="dot" style="--c:#ea580c"></span>高</td>
+        <td><div class="t">密钥/证书文件超过一年未更新</div><div class="src">GB/T 22239-2019 第三级 · 安全计算环境 · 身份鉴别 —— 「鉴别信息应具有复杂度要求并定期更换」；NIST SP 800-57 —— 加密密钥应有明确的密码周期（cryptoperiod）</div></td>
+        <td><code>id_rsa</code><div class="ev">400 天未更新（上限 365 天）</div></td>
+        <td class="adv">这个文件按名称看是密钥或证书，而它已经超过 365 天没变过。长期不换的密钥有两个问题：① 一旦泄露，可能已经泄露很久了；② 无法证明你在做密钥管理（等保和审计都会问）。建议：确认它是否真的还在用；在用的话制定轮换计划（证书通常 ≤1 年，根密钥按组织策略）。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">找不到密钥轮换策略</div><div class="src">GB/T 22239-2019 第三级 · 安全管理体系 · 安全管理制度 —— 应建立安全管理制度，对重要管理活动明确要求</div></td>
+        <td><code>README.md</code><div class="ev">以下文件都不存在：README.md / SECURITY.md / SECURITY.txt …</div></td>
+        <td class="adv">文档里没有任何关于密钥/证书轮换的说明。这不一定是问题（可能记在别处），但等保测评和客户尽调通常都会问「密钥多久换一次、谁负责」。把它写进 README 或 SECURITY.md 只要十分钟。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">同一密钥在多个环境配置中被引用</div><div class="src">GB/T 22239-2019 第三级 · 安全计算环境 · 访问控制 —— 应遵循最小权限原则；密钥应按环境隔离</div></td>
+        <td><code>.env.production:1</code><div class="ev">JWT_SECRET=abcd1234efgh5678ijkl</div></td>
+        <td class="adv">测试环境和生产环境用同一把密钥，意味着：测试环境的泄露直接影响生产；而且无法在不影响生产的前提下轮换。为每个环境生成独立的密钥。</td>
+      </tr>
+      <tr class="sev-medium">
+        <td><span class="dot" style="--c:#ca8a04"></span>中</td>
+        <td><div class="t">同一密钥在多个环境配置中被引用</div><div class="src">GB/T 22239-2019 第三级 · 安全计算环境 · 访问控制 —— 应遵循最小权限原则；密钥应按环境隔离</div></td>
+        <td><code>.env.test:1</code><div class="ev">JWT_SECRET=abcd1234efgh5678ijkl</div></td>
+        <td class="adv">测试环境和生产环境用同一把密钥，意味着：测试环境的泄露直接影响生产；而且无法在不影响生产的前提下轮换。为每个环境生成独立的密钥。</td>
+      </tr></tbody></table>
+
+  <footer>
+    <p>扫描范围：<code>tests/fixtures/fail/demo-project</code> · 3 个文件</p>
+    <p>规则库：— · 生成时间：2026-10-13 02:34:35</p>
+    <p></p>
+  </footer>
+</div></body></html>

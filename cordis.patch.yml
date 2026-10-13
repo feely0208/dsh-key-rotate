@@ -1,0 +1,4 @@
+# @deepwhale-cn/dsh-key-rotate 的组合层
+- insert:
+    - id: key-rotate
+      name: '@deepwhale-cn/dsh-key-rotate'

@@ -1,0 +1,14 @@
+{
+  "id": "KEY-SHARED-ENV",
+  "title": "同一密钥在多个环境配置中被引用",
+  "severity": "medium",
+  "source": "GB/T 22239-2019 第三级 · 安全计算环境 · 访问控制 —— 应遵循最小权限原则；密钥应按环境隔离",
+  "advice": "测试环境和生产环境用同一把密钥，意味着：测试环境的泄露直接影响生产；而且无法在不影响生产的前提下轮换。为每个环境生成独立的密钥。",
+  "check": {
+    "type": "file-pattern",
+    "pattern": "(JWT_SECRET|API_KEY|SECRET_KEY|ENCRYPTION_KEY|PRIVATE_KEY)\\s*[:=]\\s*[\"']?[^\\s\"']{12,}",
+    "flags": "g",
+    "paths": ["**/.env.test", "**/.env.staging", "**/.env.prod", "**/.env.production", "**/.env.development", "**/.env.local", "**/*.env"],
+    "max": 20
+  }
+}

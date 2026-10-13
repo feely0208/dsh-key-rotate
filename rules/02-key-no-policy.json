@@ -1,0 +1,14 @@
+{
+  "id": "KEY-NO-POLICY",
+  "title": "找不到密钥轮换策略",
+  "severity": "medium",
+  "source": "GB/T 22239-2019 第三级 · 安全管理体系 · 安全管理制度 —— 应建立安全管理制度，对重要管理活动明确要求",
+  "advice": "文档里没有任何关于密钥/证书轮换的说明。这不一定是问题（可能记在别处），但等保测评和客户尽调通常都会问「密钥多久换一次、谁负责」。把它写进 README 或 SECURITY.md 只要十分钟。",
+  "check": {
+    "type": "files-lack",
+    "pattern": "轮换|rotation|rotate|密钥周期|有效期管理|cryptoperiod|certificate renewal",
+    "flags": "i",
+    "paths": ["README.md", "SECURITY.md", "SECURITY.txt", "docs/*.md", "docs/**/*.md", "CONTRIBUTING.md"],
+    "evidence": "文档里没有提到密钥/证书轮换"
+  }
+}
