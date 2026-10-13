@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-key-rotate
 
+[![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/feely0208/dsh-key-rotate)
+
 **密钥轮换** —— 查密钥与证书多久没换了、有没有轮换制度、有没有跨环境复用。
 
 ## 不装它会怎样
