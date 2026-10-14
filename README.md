@@ -48,7 +48,11 @@ dsh-key-rotate --list-rules    # 列出规则和依据
 dsh-key-rotate --html r.html
 ```
 
-![dsh-key-rotate 的检查报告示例](https://www.deepwhale.org.cn/plugin-assets/dsh-key-rotate/report.png)
+![dsh-key-rotate 检查报告示例](https://www.deepwhale.org.cn/plugin-assets/dsh-key-rotate/report.png)
+
+![dsh-key-rotate 演示模式输出](https://www.deepwhale.org.cn/plugin-assets/dsh-key-rotate/demo.png)
+
+![dsh-key-rotate 规则与依据](https://www.deepwhale.org.cn/plugin-assets/dsh-key-rotate/rules.png)
 
 ## 边界
 
