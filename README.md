@@ -3,7 +3,7 @@
 [![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/feely0208/dsh-key-rotate)
 
 
-**关键词**：密钥轮换 · 密钥管理 · 证书轮换 · 密钥过期 · 密码周期
+**关键词**：密钥轮换 · 密钥管理 · 证书轮换 · 证书过期 · 密钥过期 · 密码周期 · 密钥复用
 **Keywords**: key rotation · secret rotation · certificate rotation · key management · cryptoperiod
 **密钥轮换** —— 查密钥与证书多久没换了、有没有轮换制度、有没有跨环境复用。
 
