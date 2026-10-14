@@ -48,7 +48,7 @@ dsh-key-rotate --list-rules    # 列出规则和依据
 dsh-key-rotate --html r.html
 ```
 
-![报告示例](docs/report.png)
+![dsh-key-rotate 的检查报告示例](https://raw.githubusercontent.com/feely0208/dsh-key-rotate/main/docs/report.png)
 
 ## 边界
 
