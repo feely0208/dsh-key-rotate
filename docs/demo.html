@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0d0f13; display:flex; justify-content:center;
+         align-items:flex-start; padding:22px; font-family:-apple-system,"PingFang SC",
+         "Helvetica Neue",sans-serif; }
+  .win { width:1180px; border-radius:11px; overflow:hidden;
+          box-shadow:0 14px 44px rgba(0,0,0,.55); }
+  .bar { background:#2a2d34; padding:11px 15px; display:flex; align-items:center; gap:9px; }
+  .dot { width:12px; height:12px; border-radius:50%; }
+  .t { margin-left:11px; color:#7a8290; font-size:13px; letter-spacing:.02em; }
+  .term { background:#1b1d22; padding:20px 22px 24px; font-family:"SF Mono",Menlo,Consolas,
+           "PingFang SC",monospace; font-size:13.5px; line-height:1.72; }
+  .cmd { color:#5ee08a; margin-bottom:13px; font-size:13.5px; }
+  .cmd b { color:#fff; font-weight:600; }
+  .l { white-space:pre-wrap; word-break:break-word; }
+</style></head><body>
+  <div class="win">
+    <div class="bar">
+      <span class="dot" style="background:#ff5f57"></span>
+      <span class="dot" style="background:#febc2e"></span>
+      <span class="dot" style="background:#28c840"></span>
+      <span class="t">dsh-key-rotate · demo</span>
+    </div>
+    <div class="term">
+      <div class="cmd">$ <b>dsh-key-rotate --demo</b></div>
+      <div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  【演示模式】使用内置样本，不是你的真实项目。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  深鲸守护 · 密钥轮换 v0.1.0</span></div>
+<div class="l"><span style="color:#d8dee9">  ──────────────────────────────────────────────────────────────────</span></div>
+<div class="l"><span style="color:#d8dee9">  扫描范围   内置演示样本 · 故意有问题的项目</span></div>
+<div class="l"><span style="color:#d8dee9">             3 个文件 · 0 个目录已跳过</span></div>
+<div class="l"><span style="color:#d8dee9">  检查规则   3/3 条</span></div>
+<div class="l"><span style="color:#ffd166">  命中       4 条</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#ff6b6b">  【高】1 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 密钥/证书文件超过一年未更新</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  id_rsa</span></div>
+<div class="l"><span style="color:#7a8290">      证据  401 天未更新（上限 365 天）</span></div>
+<div class="l"><span style="color:#7a8290">      依据  GB/T 22239-2019 第三级 · 安全计算环境 · 身份鉴别 —— 「鉴别信息应具有复杂度要求并定期更换」；NIST SP 800-57 —— 加密密钥应有明确的密码周期（cryptoperiod）</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  这个文件按名称看是密钥或证书，而它已经超过 365 天没变过。长期不换的密钥有两个问题：① 一旦泄露，可能已经泄露很久了；② 无法证明你在做密钥管理（等保和审计都会问）。建议：确认它是否真的还在用；在用的话制定轮换计划（证书通常 ≤1 年，根密钥按组织策略）。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#ffd166">  【中】3 条</span></div>
+<div class="l"><span style="color:#7a8290">    · 找不到密钥轮换策略</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  README.md</span></div>
+<div class="l"><span style="color:#7a8290">      证据  以下文件都不存在：README.md / SECURITY.md / SECURITY.txt …</span></div>
+<div class="l"><span style="color:#7a8290">      依据  GB/T 22239-2019 第三级 · 安全管理体系 · 安全管理制度 —— 应建立安全管理制度，对重要管理活动明确要求</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  文档里没有任何关于密钥/证书轮换的说明。这不一定是问题（可能记在别处），但等保测评和客户尽调通常都会问「密钥多久换一次、谁负责」。把它写进 README 或 SECURITY.md 只要十分钟。</span></div>
+<div class="l"><span style="color:#7a8290">    · 同一密钥在多个环境配置中被引用</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  .env.production:1</span></div>
+<div class="l"><span style="color:#7a8290">      证据  JWT_SECRET=abcd1234efgh5678ijkl</span></div>
+<div class="l"><span style="color:#7a8290">      依据  GB/T 22239-2019 第三级 · 安全计算环境 · 访问控制 —— 应遵循最小权限原则；密钥应按环境隔离</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  测试环境和生产环境用同一把密钥，意味着：测试环境的泄露直接影响生产；而且无法在不影响生产的前提下轮换。为每个环境生成独立的密钥。</span></div>
+<div class="l"><span style="color:#7a8290">    · 同一密钥在多个环境配置中被引用</span></div>
+<div class="l"><span style="color:#d8dee9">      位置  .env.test:1</span></div>
+<div class="l"><span style="color:#7a8290">      证据  JWT_SECRET=abcd1234efgh5678ijkl</span></div>
+<div class="l"><span style="color:#7a8290">      依据  GB/T 22239-2019 第三级 · 安全计算环境 · 访问控制 —— 应遵循最小权限原则；密钥应按环境隔离</span></div>
+<div class="l"><span style="color:#d8dee9">      建议  测试环境和生产环境用同一把密钥，意味着：测试环境的泄露直接影响生产；而且无法在不影响生产的前提下轮换。为每个环境生成独立的密钥。</span></div>
+<div class="l"><span style="color:#7a8290">&nbsp;</span></div>
+<div class="l"><span style="color:#d8dee9">  ──────────────────────────────────────────────────────────────────</span></div>
+    </div>
+  </div>
+</body></html>
