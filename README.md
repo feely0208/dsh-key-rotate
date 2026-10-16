@@ -59,7 +59,7 @@ dsh-key-rotate --html r.html
 - **年龄 ≠ 未轮换** —— 密钥可能在 KMS 里，本地只是副本。报出来需你确认。
 - **不解析证书内容** —— 不校验有效期、签发者、密钥长度。
 - **跨环境复用只看 .env 类文件** —— KMS / CI secrets 看不到。
-- 与 [dsh-secret-scan](https://github.com/feely0208/dsh-cn-skills) 分工：那个查「密钥有没有被提交」，这个查「多久没换」。
+- 与 [dsh-bundle-cn-skills](https://github.com/feely0208/dsh-bundle-cn-skills) 分工：那个查「密钥有没有被提交」，这个查「多久没换」。
 
 本插件是一个工具。使用者必须遵守所在地区法律法规，**对使用本项目造成的任何后果自行承担责任。**
 
