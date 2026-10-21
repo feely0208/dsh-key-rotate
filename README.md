@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-key-rotate
 
+[![dshfind 收录](https://dshfind.com/api/badge/feely0208/dsh-key-rotate?lang=zh)](https://dshfind.com/zh/plugins/feely0208/dsh-key-rotate)
+
 [![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/feely0208/dsh-key-rotate)
 
 
