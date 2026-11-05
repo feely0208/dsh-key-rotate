@@ -1,1 +1,6 @@
-{"name":"clean-project","version":"1.0.0","license":"MIT"}
+{
+  "name": "clean-project",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "温州深鲸智能科技有限公司 <contact@deepwhale.org.cn>"
+}

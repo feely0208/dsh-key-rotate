@@ -1,6 +1,6 @@
 {
   "name": "@deepwhale-cn/dsh-key-rotate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "查密钥与证书多久没换了、有没有轮换制度 —— 长期不换的密钥往往没人注意，却是实打实的风险",
   "type": "module",
   "license": "MIT",
@@ -39,7 +39,7 @@
     "dsh-key-rotate": "./bin/cli.mjs"
   },
   "engines": {
-    "dsh": ">=0.1.0-rc.6",
+    "dsh": ">=0.1.0-rc.6 <0.3.0",
     "node": ">=18"
   },
   "dsh": {
@@ -60,5 +60,6 @@
   "homepage": "https://www.deepwhale.org.cn/skills.html",
   "bugs": {
     "url": "https://github.com/feely0208/dsh-key-rotate/issues"
-  }
+  },
+  "author": "温州深鲸智能科技有限公司 <contact@deepwhale.org.cn>"
 }
