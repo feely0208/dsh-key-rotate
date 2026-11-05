@@ -1,5 +1,7 @@
 # @deepwhale-cn/dsh-key-rotate
 
+[![dshfind 收录](https://dshfind.com/api/badge/feely0208/dsh-key-rotate?lang=zh)](https://dshfind.com/zh/plugins/feely0208/dsh-key-rotate)
+
 [![Listed on dsh-plugin.org](https://dsh-plugin.org/badges/listed.svg)](https://dsh-plugin.org/plugins/feely0208/dsh-key-rotate)
 
 
@@ -84,3 +86,7 @@ dsh-key-rotate --html r.html
 **编排与交付**（4）｜ [一键体检](https://github.com/feely0208/dsh-guard-suite) · [改前改后复核](https://github.com/feely0208/dsh-fix-verify) · [合规可交付文档](https://github.com/feely0208/dsh-compliance-doc) · [整改建议](https://github.com/feely0208/dsh-remediation)
 
 都在 DSH 插件市场（dsh-plugin.org）、npm 和 deepwhale.org.cn/guard.html 上。
+
+---
+
+<p align="right"><a href="https://deepwhale.org.cn"><img src="https://www.deepwhale.org.cn/images/badge/deepwhale-badge.png" alt="powered by dwh" height="20"></a></p>
